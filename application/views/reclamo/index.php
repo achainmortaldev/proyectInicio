@@ -155,24 +155,46 @@
         <div class="col-md-12">
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Gestión de Reclamos</h3>
+              <h3 class="box-title">Reclamos</h3>
               
               <div class="box-tools pull-right">
-             
-                <!--<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-wrench"></i></button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </div>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>-->
+              </div>
+            </div>
+
+
+            <div class="box-body">
+              <div class="row">
+                <table id="tblReclamo" 
+                       data-search="true"
+                       data-show-refresh="true"
+                       data-show-toggle="true"
+                       data-show-columns="true"
+                       data-query-params="queryParams"
+                       data-pagination="true" 
+                       data-toolbar="#toolbar"
+                       class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th data-field="name">Name</th>
+                        <th data-field="stargazers_count">Stars</th>
+                        <th data-field="forks_count">Forks</th>
+                        <th data-field="description">Description</th>
+                    </tr>
+                    </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Gestión de Reclamos</h3>
+              <div class="box-tools pull-right">
               </div>
             </div>
             <!-- /.box-header -->
@@ -451,6 +473,103 @@ $(document).ready(function () {
         if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
     });
     $('div.setup-panel div div.bg-green').find('a').trigger('click');*/
+
+    var  data = [
+        {
+            "name": "bootstrap-table",
+            "stargazers_count": "526",
+            "forks_count": "122",
+            "description": "An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3)"
+        },
+        {
+            "name": "multiple-select",
+            "stargazers_count": "288",
+            "forks_count": "150",
+            "description": "A jQuery plugin to select multiple elements with checkboxes :)"
+        },
+        {
+            "name": "bootstrap-show-password",
+            "stargazers_count": "32",
+            "forks_count": "11",
+            "description": "Show/hide password plugin for twitter bootstrap."
+        },
+        {
+            "name": "blog",
+            "stargazers_count": "13",
+            "forks_count": "4",
+            "description": "my blog"
+        },
+        {
+            "name": "scutech-redmine",
+            "stargazers_count": "6",
+            "forks_count": "3",
+            "description": "Redmine notification tools for chrome extension."
+        },
+        {
+            "name": "bootstrap-table",
+            "stargazers_count": "526",
+            "forks_count": "122",
+            "description": "An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3)"
+        },
+        {
+            "name": "multiple-select",
+            "stargazers_count": "288",
+            "forks_count": "150",
+            "description": "A jQuery plugin to select multiple elements with checkboxes :)"
+        },
+        {
+            "name": "bootstrap-show-password",
+            "stargazers_count": "32",
+            "forks_count": "11",
+            "description": "Show/hide password plugin for twitter bootstrap."
+        },
+        {
+            "name": "blog",
+            "stargazers_count": "13",
+            "forks_count": "4",
+            "description": "my blog"
+        },
+        {
+            "name": "scutech-redmine",
+            "stargazers_count": "6",
+            "forks_count": "3",
+            "description": "Redmine notification tools for chrome extension."
+        },
+        {
+            "name": "bootstrap-table",
+            "stargazers_count": "526",
+            "forks_count": "122",
+            "description": "An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3)"
+        },
+        {
+            "name": "multiple-select",
+            "stargazers_count": "288",
+            "forks_count": "150",
+            "description": "A jQuery plugin to select multiple elements with checkboxes :)"
+        },
+        {
+            "name": "bootstrap-show-password",
+            "stargazers_count": "32",
+            "forks_count": "11",
+            "description": "Show/hide password plugin for twitter bootstrap."
+        },
+        {
+            "name": "blog",
+            "stargazers_count": "13",
+            "forks_count": "4",
+            "description": "my blog"
+        },
+        {
+            "name": "scutech-redmine",
+            "stargazers_count": "6",
+            "forks_count": "3",
+            "description": "Redmine notification tools for chrome extension."
+        }
+    ]
+
+    $('#tblReclamo').bootstrapTable({
+        data: data
+    });
 });
 
 function changeNotificacion(event){

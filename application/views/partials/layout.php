@@ -26,6 +26,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo $base_public; ?>plugin/select2/css/select2.min.css">
 	<link rel="stylesheet" href="<?php echo $base_public; ?>plugin/select2/css/select2-bootstrap.css">
 
+	<!--boostrap table-->
+	<link href="<?php echo $base_public; ?>plugin/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -69,6 +72,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="<?php echo $base_public; ?>plugin/select2/js/select2.full.js"></script>
 
 	<script src="<?php echo $base_public; ?>js/init.js"></script>
+
+	<!--boostrap table-->
+	<script src="<?php echo $base_public; ?>plugin/bootstrap-table/bootstrap-table.min.js"></script>
+	<script src="<?php echo $base_public; ?>plugin/bootstrap-table/extensions/mobile/bootstrap-table-mobile.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-en-US.js"></script>
 
 	<!-- AdminLTE for demo purposes -->
 	<!--<script src="<?php //echo $base_public; ?>js/demo.js"></script>-->
