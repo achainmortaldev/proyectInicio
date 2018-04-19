@@ -26,6 +26,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo $base_public; ?>plugin/select2/css/select2.min.css">
 	<link rel="stylesheet" href="<?php echo $base_public; ?>plugin/select2/css/select2-bootstrap.css">
 
+	<!-- file input -->
+	<link rel="stylesheet" href="<?php echo $base_public; ?>plugin/fileinput-master/css/fileinput.min.css">
+	<link rel="stylesheet" href="<?php echo $base_public; ?>plugin/fileinput-master/themes/explorer/theme.css">
+
 	<!--boostrap table-->
 	<link href="<?php echo $base_public; ?>plugin/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
 
@@ -70,6 +74,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="<?php echo $base_public; ?>js/pages/dashboard2.js"></script>
 	<!-- select2 --> 
 	<script src="<?php echo $base_public; ?>plugin/select2/js/select2.full.js"></script>
+
+	<!-- file input -->
+	<script src="<?php echo $base_public; ?>plugin/fileinput-master/js/fileinput.min.js"></script>
+	<script src="<?php echo $base_public; ?>plugin/fileinput-master/themes/explorer/theme.min.js"></script>
 
 	<script src="<?php echo $base_public; ?>js/init.js"></script>
 

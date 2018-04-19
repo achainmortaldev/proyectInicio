@@ -172,15 +172,22 @@
                        data-query-params="queryParams"
                        data-pagination="true" 
                        data-toolbar="#toolbar"
-                       class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th data-field="name">Name</th>
-                        <th data-field="stargazers_count">Stars</th>
-                        <th data-field="forks_count">Forks</th>
-                        <th data-field="description">Description</th>
-                    </tr>
-                    </thead>
+                       class="table table-hover"
+                         >
+                      <thead>
+                      <tr>
+                          <th data-field="consumidor">Consumidor</th>
+                          <th data-field="numero">Núm Reclamo</th>
+                          <th data-field="nombre">Nombre</th>
+                          <th data-field="apellidos">Apellidos</th>
+                          <th data-field="ci">Ci</th>
+                          <th data-field="descripcion">Descripcion</th>
+                          <th data-field="accion"
+                              data-align="center"
+                              data-formatter="actionFormatter"
+                              data-events="actionEvents"></th>
+                      </tr>
+                      </thead>
                 </table>
               </div>
             </div>
@@ -403,6 +410,17 @@
                                <h3 class="panel-title">Documentos</h3>
                           </div>
                           <div class="panel-body">
+                              
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label class="control-label">Documentos</label>
+                                  <input id="input-ke-1" name="input-ke-1[]" type="file" multiple accept="image" class="form-control">
+                                </div>
+                              </div>
+                            </div>
+
+
                               Documentos
                               <button class="btn btn-success pull-right" type="submit">Finish!</button>
                           </div>
@@ -474,96 +492,123 @@ $(document).ready(function () {
     });
     $('div.setup-panel div div.bg-green').find('a').trigger('click');*/
 
-    var  data = [
+    $("#input-ke-1").fileinput({
+        theme: "explorer",
+        uploadUrl: "/file-upload-batch/2",
+        allowedFileExtensions: ['jpg', 'png', 'gif'],
+        overwriteInitial: false,
+        initialPreviewAsData: true,
+    });
+
+    var data = [
         {
-            "name": "bootstrap-table",
-            "stargazers_count": "526",
-            "forks_count": "122",
-            "description": "An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3)"
+            "id":"1",
+            "consumidor": 1,
+            "numero": "1",
+            "nombre": "Ricardo",
+            "apellidos": "Arce Montero",
+            "ci": 6512478,
+            "descripcion" : "Consumidor a especificado que no tiene servicio de gas domiciliario",
+            'accion': ""
         },
         {
-            "name": "multiple-select",
-            "stargazers_count": "288",
-            "forks_count": "150",
-            "description": "A jQuery plugin to select multiple elements with checkboxes :)"
+            "id":"2",
+            "consumidor": 1,
+            "numero": "2",
+            "nombre": "Juan",
+            "apellidos": "Gutierres Salvado",
+            "ci": 5412987,
+            "descripcion" : "El consumidor ha espcificado no tener gas dominiciliario",
+            'accion': ""
         },
         {
-            "name": "bootstrap-show-password",
-            "stargazers_count": "32",
-            "forks_count": "11",
-            "description": "Show/hide password plugin for twitter bootstrap."
+            "id":"3",
+            "consumidor": 2,
+            "numero": "3",
+            "nombre": "Denis",
+            "apellidos": "Mamani Canavir",
+            "ci": 56412587,
+            "descripcion" : "Consumdo elevado por el periodo de enero",
+            "accion" : ""
         },
         {
-            "name": "blog",
-            "stargazers_count": "13",
-            "forks_count": "4",
-            "description": "my blog"
+            "id":"4",
+            "consumidor": 3,
+            "numero": "4",
+            "nombre": "Maria",
+            "apellidos": "Ordoñez Sandoval",
+            "ci": 6524587,
+            "descripcion" : "Consumidor ha reportado cortes reiterados",
+            "accion" : ""
         },
         {
-            "name": "scutech-redmine",
-            "stargazers_count": "6",
-            "forks_count": "3",
-            "description": "Redmine notification tools for chrome extension."
+            "id":"5",
+            "consumidor": 5,
+            "numero": "5",
+            "nombre": "Oscar",
+            "apellidos": "Montaño Esquinero",
+            "ci": 5432198,
+            "descripcion" : "Anomalias en la red"
         },
         {
-            "name": "bootstrap-table",
-            "stargazers_count": "526",
-            "forks_count": "122",
-            "description": "An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3)"
+            "id":"6",
+            "consumidor": 6,
+            "numero": "6",
+            "nombre": "Ricardo",
+            "apellidos": "Arce Montero",
+            "ci": 6512478,
+            "descripcion" : "Consumidor a especificado que no tiene servicio de gas domiciliario",
+            "accion" : ""
         },
         {
-            "name": "multiple-select",
-            "stargazers_count": "288",
-            "forks_count": "150",
-            "description": "A jQuery plugin to select multiple elements with checkboxes :)"
+            "id":"7",
+            "consumidor": 7,
+            "numero": "7",
+            "nombre": "Juan",
+            "apellidos": "Gutierres Salvado",
+            "ci": 5412987,
+            "descripcion" : "El consumidor ha espcificado no tener gas dominiciliario",
+            "accion" : ""
         },
         {
-            "name": "bootstrap-show-password",
-            "stargazers_count": "32",
-            "forks_count": "11",
-            "description": "Show/hide password plugin for twitter bootstrap."
+            "id":"8",
+            "consumidor": 8,
+            "numero": "9",
+            "nombre": "Denis",
+            "apellidos": "Mamani Canavir",
+            "ci": 56412587,
+            "descripcion" : "Consumdo elevado por el periodo de enero",
+            "accion" : ""
         },
         {
-            "name": "blog",
-            "stargazers_count": "13",
-            "forks_count": "4",
-            "description": "my blog"
+            "id":"9",
+            "consumidor": 9,
+            "numero": "10",
+            "nombre": "Maria",
+            "apellidos": "Ordoñez Sandoval",
+            "ci": 6524587,
+            "descripcion" : "Consumidor ha reportado cortes reiterados",
+            "accion" : ""
         },
         {
-            "name": "scutech-redmine",
-            "stargazers_count": "6",
-            "forks_count": "3",
-            "description": "Redmine notification tools for chrome extension."
+            "id":"10",
+            "consumidor": 10,
+            "numero": "11",
+            "nombre": "Oscar",
+            "apellidos": "Montaño Esquinero",
+            "ci": 5432198,
+            "descripcion" : "Anomalias en la red",
+            "accion" : ""
         },
         {
-            "name": "bootstrap-table",
-            "stargazers_count": "526",
-            "forks_count": "122",
-            "description": "An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3)"
-        },
-        {
-            "name": "multiple-select",
-            "stargazers_count": "288",
-            "forks_count": "150",
-            "description": "A jQuery plugin to select multiple elements with checkboxes :)"
-        },
-        {
-            "name": "bootstrap-show-password",
-            "stargazers_count": "32",
-            "forks_count": "11",
-            "description": "Show/hide password plugin for twitter bootstrap."
-        },
-        {
-            "name": "blog",
-            "stargazers_count": "13",
-            "forks_count": "4",
-            "description": "my blog"
-        },
-        {
-            "name": "scutech-redmine",
-            "stargazers_count": "6",
-            "forks_count": "3",
-            "description": "Redmine notification tools for chrome extension."
+            "id":"11",
+            "consumidor": 11,
+            "numero": "15",
+            "nombre": "Oscar",
+            "apellidos": "Montaño Esquinero",
+            "ci": 5432198,
+            "descripcion" : "Anomalias en la red",
+            "accion" : ""
         }
     ]
 
