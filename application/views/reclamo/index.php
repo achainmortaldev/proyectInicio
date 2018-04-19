@@ -85,7 +85,7 @@
         <div class="col-lg-12 col-md-12">
           <div class="callout callout-info" style="height: 60px">
             <div class="col-lg-3 col-md-3 col-sm-12 ">
-              <div class="btn-group" role="group" aria-label="search simple"> 
+              <div class="btn-group" role="group" aria-label="actions"> 
                 <button type="button" class="btn btn-primary" id="btnAddClaimer"><i class="fa fa-fw fa-plus"></i>&nbsp;</button>
                 <button type="button" class="btn btn-default" id="btnDerivation"><i class="fa fa-fw fa-exchange"></i>&nbsp;</button>
                 <button type="button" class="btn btn-default" id="btnPronunciamiento"><i class="fa fa-fw fa-gavel"></i>&nbsp;</button>
@@ -94,14 +94,18 @@
               <div class="clearfix"></div>
             </div>
 
-            <div class="col-lg-8 col-md-8 col-sm-12">
+            <div class="col-lg-7 col-md-7 col-sm-12">
               <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Ingreso texto a buscar">
               <div class="clearfix"></div>
             </div>
 
-            <div class="col-lg-1 col-md-1 col-sm-12 text-right">
-              <div class="btn-group" role="group" aria-label="search simple"> 
-                <button type="button" class="btn btn-block btn-default" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" data-target="#collapseOne" ><i class="fa fa-fw fa-search"></i>&nbsp;</button>
+            <div class="col-lg-2 col-md-2 col-sm-12 ">
+              <div class="btn-group pull-right" role="group" aria-label="search"> 
+                <button type="button" class="btn btn-default" id="btnRefresh" ><i class="fa fa-fw fa-refresh"></i>&nbsp;</button>
+              </div>
+
+              <div class="btn-group pull-left" role="group" aria-label="search"> 
+                <button type="button" class="btn btn-default" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" data-target="#collapseOne" ><i class="fa fa-fw fa-search"></i>&nbsp;</button>
               </div>
               <div class="clearfix"></div>
             </div>
@@ -154,7 +158,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" id="divTableClaimer">
         <div class="col-md-12">
           <div class="box">
             <div class="box-header with-border">
@@ -168,13 +172,6 @@
             <div class="box-body">
               <div class="row">
                 <table id="tblReclamo" 
-                       data-search="true"
-                       data-show-refresh="true"
-                       data-show-toggle="true"
-                       data-show-columns="true"
-                       data-query-params="queryParams"
-                       data-pagination="true" 
-                       data-toolbar="#toolbar"
                        class="table table-hover"
                          >
                       <thead>
@@ -187,7 +184,7 @@
                           <th data-field="descripcion">Descripcion</th>
                           <th data-field="accion"
                               data-align="center"
-                              data-formatter="actionFormatter"
+                              
                               data-events="actionEvents"></th>
                       </tr>
                       </thead>
@@ -198,7 +195,7 @@
         </div>
       </div>
 
-      <div class="row" style="display: none">
+      <div class="row" id="divFormAddClaimer" style="display: none">
         <div class="col-md-12">
           <div class="box">
             <div class="box-header with-border">
@@ -451,46 +448,6 @@
 <?php $this->start('script') ?>
 <script type="text/javascript">
 $(document).ready(function () {
-  
-    /*$( ".sucursal" ).select2( {
-      theme: "bootstrap",
-      placeholder: "Seleccione Sucursal",
-      maximumSelectionSize: 6,
-      containerCssClass: ':all:',
-      allowClear: true
-    } );
-
-
-    var navListItems = $('div.setup-panel div a'),
-        allWells = $('.setup-content'),
-        allNextBtn = $('.nextBtn');
-
-    allWells.hide();
-    navListItems.click(function (e) {
-        e.preventDefault();
-        var $target = $($(this).attr('href')),
-            $item = $(this).closest(".info-box");
-
-        if (!$item.hasClass('disabled')) {
-            navListItems.closest(".info-box").removeClass('bg-green ').addClass(' bg-aqua');
-            $item.addClass('bg-green');
-            allWells.hide();
-            $target.show();
-            $target.find('input:eq(0)').focus();
-        }
-    });
-
-    allNextBtn.click(function () {
-        var curStep = $(this).closest(".setup-content"),
-            curStepBtn = curStep.attr("id"),
-            //nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-            nextStepWizard = $('div.setup-panel').find('a[href="#' + curStepBtn + '"]').closest('.stepwizard-step').next().find('a'),
-            curInputs = curStep.find("input[type='text'],input[type='url']"),
-            isValid = true;
-
-        if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
-    });
-    $('div.setup-panel div div.bg-green').find('a').trigger('click');*/
 
     $("#input-ke-1").fileinput({
         theme: "explorer",
@@ -509,7 +466,7 @@ $(document).ready(function () {
             "apellidos": "Arce Montero",
             "ci": 6512478,
             "descripcion" : "Consumidor a especificado que no tiene servicio de gas domiciliario",
-            'accion': ""
+            'accion': "<input type='checkbox' name='check'>"
         },
         {
             "id":"2",
@@ -519,7 +476,7 @@ $(document).ready(function () {
             "apellidos": "Gutierres Salvado",
             "ci": 5412987,
             "descripcion" : "El consumidor ha espcificado no tener gas dominiciliario",
-            'accion': ""
+            'accion': "<input type='checkbox' name='check'>"
         },
         {
             "id":"3",
@@ -529,7 +486,7 @@ $(document).ready(function () {
             "apellidos": "Mamani Canavir",
             "ci": 56412587,
             "descripcion" : "Consumdo elevado por el periodo de enero",
-            "accion" : ""
+            "accion" : "<input type='checkbox' name='check'>"
         },
         {
             "id":"4",
@@ -539,7 +496,7 @@ $(document).ready(function () {
             "apellidos": "Ordoñez Sandoval",
             "ci": 6524587,
             "descripcion" : "Consumidor ha reportado cortes reiterados",
-            "accion" : ""
+            "accion" : "<input type='checkbox' name='check'>"
         },
         {
             "id":"5",
@@ -548,7 +505,8 @@ $(document).ready(function () {
             "nombre": "Oscar",
             "apellidos": "Montaño Esquinero",
             "ci": 5432198,
-            "descripcion" : "Anomalias en la red"
+            "descripcion" : "Anomalias en la red",
+            "accion": "<input type='checkbox' name='check'>"
         },
         {
             "id":"6",
@@ -558,7 +516,7 @@ $(document).ready(function () {
             "apellidos": "Arce Montero",
             "ci": 6512478,
             "descripcion" : "Consumidor a especificado que no tiene servicio de gas domiciliario",
-            "accion" : ""
+            "accion" : "<input type='checkbox' name='check'>"
         },
         {
             "id":"7",
@@ -568,7 +526,7 @@ $(document).ready(function () {
             "apellidos": "Gutierres Salvado",
             "ci": 5412987,
             "descripcion" : "El consumidor ha espcificado no tener gas dominiciliario",
-            "accion" : ""
+            "accion" : "<input type='checkbox' name='check'>"
         },
         {
             "id":"8",
@@ -578,7 +536,7 @@ $(document).ready(function () {
             "apellidos": "Mamani Canavir",
             "ci": 56412587,
             "descripcion" : "Consumdo elevado por el periodo de enero",
-            "accion" : ""
+            "accion" : "<input type='checkbox' name='check'>"
         },
         {
             "id":"9",
@@ -588,7 +546,7 @@ $(document).ready(function () {
             "apellidos": "Ordoñez Sandoval",
             "ci": 6524587,
             "descripcion" : "Consumidor ha reportado cortes reiterados",
-            "accion" : ""
+            "accion" : "<input type='checkbox' name='check'>"
         },
         {
             "id":"10",
@@ -598,7 +556,7 @@ $(document).ready(function () {
             "apellidos": "Montaño Esquinero",
             "ci": 5432198,
             "descripcion" : "Anomalias en la red",
-            "accion" : ""
+            "accion" : "<input type='checkbox' name='check'>"
         },
         {
             "id":"11",
@@ -608,13 +566,17 @@ $(document).ready(function () {
             "apellidos": "Montaño Esquinero",
             "ci": 5432198,
             "descripcion" : "Anomalias en la red",
-            "accion" : ""
+            "accion" : "<input type='checkbox' name='check'>"
         }
     ]
 
-    $('#tblReclamo').bootstrapTable({
-        data: data
+    $('#tblReclamo').toTable({
+        data: data,
+        ignoreClickToSelectOn: function(item){
+          console.log(item);
+        }
     });
+
 });
 
 function changeNotificacion(event){
@@ -645,5 +607,16 @@ function changeNotificacion(event){
     }
   }
 }
+
+$( "#btnAddClaimer" ).on( "click", function() {
+  $.hideContainer("divTableClaimer");
+  $.openContainer("divFormAddClaimer");
+});
+
+$( "#btnRefresh" ).on( "click", function() {
+  $.hideContainer("divFormAddClaimer");
+  $.openContainer("divTableClaimer");
+});
+
 </script>
 <?php $this->stop() ?>

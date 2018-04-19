@@ -79,12 +79,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="<?php echo $base_public; ?>plugin/fileinput-master/js/fileinput.min.js"></script>
 	<script src="<?php echo $base_public; ?>plugin/fileinput-master/themes/explorer/theme.min.js"></script>
 
-	<script src="<?php echo $base_public; ?>js/init.js"></script>
-
 	<!--boostrap table-->
 	<script src="<?php echo $base_public; ?>plugin/bootstrap-table/bootstrap-table.min.js"></script>
 	<script src="<?php echo $base_public; ?>plugin/bootstrap-table/extensions/mobile/bootstrap-table-mobile.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-en-US.js"></script>
+	<script src="<?php echo $base_public; ?>plugin/bootstrap-table/locale/bootstrap-table-en-US.js"></script>
+
+	<!--boostrap table-->
+	<script src="<?php echo $base_public; ?>plugin/bootbox/bootbox.js"></script>
+	
+	<script src="<?php echo $base_public; ?>js/constantes.js"></script>
+	<script src="<?php echo $base_public; ?>js/init.js"></script>	
+	<script src="<?php echo $base_public; ?>js/tool.js"></script>
+	<script src="<?php echo $base_public; ?>js/toTable.js"></script>
 
 	<!-- AdminLTE for demo purposes -->
 	<!--<script src="<?php //echo $base_public; ?>js/demo.js"></script>-->
