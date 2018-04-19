@@ -86,7 +86,10 @@
           <div class="callout callout-info" style="height: 60px">
             <div class="col-lg-3 col-md-3 col-sm-12 ">
               <div class="btn-group" role="group" aria-label="search simple"> 
-                <button type="button" class="btn btn-block btn-primary"><i class="fa fa-fw fa-plus"></i>&nbsp;</button>
+                <button type="button" class="btn btn-primary" id="btnAddClaimer"><i class="fa fa-fw fa-plus"></i>&nbsp;</button>
+                <button type="button" class="btn btn-default" id="btnDerivation"><i class="fa fa-fw fa-exchange"></i>&nbsp;</button>
+                <button type="button" class="btn btn-default" id="btnPronunciamiento"><i class="fa fa-fw fa-gavel"></i>&nbsp;</button>
+                <button type="button" class="btn btn-default" id="btnComunication"><i class="fa fa-fw fa-bullhorn"></i>&nbsp;</button>
               </div>
               <div class="clearfix"></div>
             </div>
@@ -193,10 +196,9 @@
             </div>
           </div>
         </div>
-        
       </div>
 
-      <div class="row">
+      <div class="row" style="display: none">
         <div class="col-md-12">
           <div class="box">
             <div class="box-header with-border">
@@ -207,9 +209,7 @@
             <!-- /.box-header -->
             <div class="box-body">
 
-              <div class="row">
-                
-                
+              <div class="row">                
                   <div class="stepwizard">
                       <div class="stepwizard-row setup-panel">
                           <div class="stepwizard-step col-xs-4"> 
