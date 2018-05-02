@@ -38,9 +38,10 @@ $.fn.toTable = function (options) {
 /*
 * metodo publico debe invocarse
 */
-$.toTableSelectRow = function(objetTrJQ){
+$.toTableSelectRow = function(objetTrJQ, callback){
     var checkbox = getCheckbox (objetTrJQ);
-    simpleClick(objetTrJQ, checkbox);
+    var selected = simpleClick(objetTrJQ, checkbox);
+    return callback(selected);
 }
 
 /*
@@ -70,12 +71,12 @@ function simpleClick(rowJq, checkbox){
     if (rowJq.hasClass('active')) {
         clearTableRowSelected(table);
         checkbox.checked = false;
-        return null;
+        return false;
     } else {
         clearTableRowSelected(table);
         rowJq.addClass('active').addClass('info');
         checkbox.checked = true;
-        return null;
+        return true;
     }
 }
 

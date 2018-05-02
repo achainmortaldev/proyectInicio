@@ -310,19 +310,27 @@
       $('#tblReclamo').toTable({
           data: data,
           onClickRow: function (dataRow, objetTrJQ){
-            $.toTableSelectRow(objetTrJQ);
+
             var btn_derivacion = $("#btnDerivation");
             var btn_pronunciamiento = $("#btnPronunciamiento");
             var btn_comunicacion = $("#btnComunication");
 
-            btn_derivacion.show();
-            btn_pronunciamiento.show();
-            btn_comunicacion.show();
+            $.toTableSelectRow(objetTrJQ, function(selected){
+              if(selected){
+                btn_derivacion.show();
+                btn_pronunciamiento.show();
+                btn_comunicacion.show();
 
-            btn_derivacion.animacionBuzzOut(3000);
-            btn_pronunciamiento.animacionBuzzOut(3000);
-            btn_comunicacion.animacionBuzzOut(3000);
-
+                btn_derivacion.animacionBuzzOut(3000);
+                btn_pronunciamiento.animacionBuzzOut(3000);
+                btn_comunicacion.animacionBuzzOut(3000);
+              }else{
+                btn_derivacion.hide();
+                btn_pronunciamiento.hide();
+                btn_comunicacion.hide();
+              }
+            });
+            
             var data_param_request = dataRow.numero+"_"+dataRow.id+"_"+dataRow.ci+"_"+dataRow.consumidor;
 
             btn_derivacion.attr('data-reclamo', data_param_request);
