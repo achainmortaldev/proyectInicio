@@ -1,5 +1,4 @@
   <?php $base_public = "http://".$_SERVER['HTTP_HOST']."/proyectInicio/public/"; ?>
-  
   <header class="main-header">
     <?php echo $this->insert('partials/icon')?>
 

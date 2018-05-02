@@ -68,3 +68,50 @@ $.hideContainer = function($id){
 $.openContainer = function($id){
   $("#"+$id).show();
 }
+
+/******************************************************************************/
+$.fn.animacionBuzzOut = function(intervalo){
+    var self = $(this);
+    var primarybtn = false;
+    var defaultbtn = false;
+    var successbtn = false;
+    var warningbtn = false;
+    if(self.hasClass('btn-primary')){
+        self.removeClass('btn-primary');
+        primarybtn = true;
+    }
+    if(self.hasClass('btn-default')){
+        self.removeClass('btn-default');
+        defaultbtn = true;
+    }
+
+    if(self.hasClass('btn-success')){
+        self.removeClass('btn-success');
+        successbtn = true;
+    }
+
+    if(self.hasClass('btn-warning')){
+        self.removeClass('btn-warning');
+        warningbtn = true;
+    }
+
+    self.addClass('hvr-buzz-out');
+    self.addClass('hvr-buzz-out-anime');
+    window.setTimeout(function(){
+        self.removeClass('hvr-buzz-out');
+        self.removeClass('hvr-buzz-out-anime');
+
+        if(primarybtn){
+            sself.addClass('btn-primary');
+        }
+        if(defaultbtn){
+            self.addClass('btn-default');
+        }
+        if(successbtn){
+            self.addClass('btn-success');
+        }
+        if(warningbtn){
+            self.addClass('btn-warning');
+        }
+    }, intervalo);
+}

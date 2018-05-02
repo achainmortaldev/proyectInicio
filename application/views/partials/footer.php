@@ -30,7 +30,6 @@
 
               <div class="menu-info">
                 <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
                 <p>New phone +1(800)555-1234</p>
               </div>
             </a>
@@ -41,7 +40,6 @@
 
               <div class="menu-info">
                 <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
                 <p>nora@example.com</p>
               </div>
             </a>
@@ -52,7 +50,6 @@
 
               <div class="menu-info">
                 <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
                 <p>Execution time 5 seconds</p>
               </div>
             </a>

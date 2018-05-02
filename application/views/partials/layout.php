@@ -33,6 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!--boostrap table-->
 	<link href="<?php echo $base_public; ?>plugin/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
 
+	<link rel="stylesheet" href="<?php echo $base_public; ?>css/hover.css">
+
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -91,6 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="<?php echo $base_public; ?>js/init.js"></script>	
 	<script src="<?php echo $base_public; ?>js/tool.js"></script>
 	<script src="<?php echo $base_public; ?>js/toTable.js"></script>
+	<script src="<?php echo $base_public; ?>js/toStepByStep.js"></script>
 
 	<!-- AdminLTE for demo purposes -->
 	<!--<script src="<?php //echo $base_public; ?>js/demo.js"></script>-->

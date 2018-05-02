@@ -35,4 +35,67 @@ $.fn.toTable = function (options) {
     $(this).bootstrapTable(this.default);
 };
 
+/*
+* metodo publico debe invocarse
+*/
+$.toTableSelectRow = function(objetTrJQ){
+    var checkbox = getCheckbox (objetTrJQ);
+    simpleClick(objetTrJQ, checkbox);
+}
+
+/*
+* metodo privado no debe invocarse
+*/
+function getCheckbox (objetTrJQ){
+    var tds = objetTrJQ.find('td');
+    var checkbox = undefined;
+    $.each(tds, function(index, el) {
+        var inputs = el.getElementsByTagName("input");
+        if(el.getElementsByTagName("input").length > 0 ){
+          for (var j = 0; j < inputs.length; j++) {
+            if(inputs[j].getAttribute('data-accion') === 'click'){
+              checkbox = inputs[j];
+            }
+          }
+        }
+    });
+    return checkbox;
+}
+
+/*
+* metodo privado no debe invocarse
+*/
+function simpleClick(rowJq, checkbox){
+    var table = rowJq.closest("table"); 
+    if (rowJq.hasClass('active')) {
+        clearTableRowSelected(table);
+        checkbox.checked = false;
+        return null;
+    } else {
+        clearTableRowSelected(table);
+        rowJq.addClass('active').addClass('info');
+        checkbox.checked = true;
+        return null;
+    }
+}
+
+/*
+* metodo privado no debe invocarse
+*/
+function clearTableRowSelected(table_jq){
+    var list_check = table_jq.find("tbody tr");
+    $.each(list_check, function (index, item) {
+        $(item).removeClass('active').removeClass('info');
+    });
+}
+
+/*
+* metodo publico debe invocarse
+* param rowJs, debe ser un objecto javascript
+*/
+$.toTableDeleteRow = function (rowJs){
+   $(rowJs).remove();
+    return false;
+}
+
 
