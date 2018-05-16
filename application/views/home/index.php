@@ -4,9 +4,10 @@
 <?php $this->stop() ?>
 
 <?php $this->start('contenido') ?>
-  <?php $base_public = "http://".$_SERVER['HTTP_HOST']."/proyectInicio/public/"; ?>
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+  <?php echo site_url(); ?>
   </div>
   <!-- /.content-wrapper -->
 <?php $this->stop() ?>

@@ -1,26 +1,19 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends Base_Controller {
-
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+class Home extends Base_Controller 
+{
+	protected $base_url = "";
+	public function __construct()
+    {
+        parent::__construct();
+        $this->base_url = $this->config->base_url();
+    }
+	
 	public function index()
 	{
-		//$this->load->view('home/index');
-		echo $this->templates->render('home/index');
+		$data['base_public'] = $this->base_url."public/";
+		$data['base_root'] = $this->base_url;
+		echo $this->templates->render('home/index', $data);
 	}
 }

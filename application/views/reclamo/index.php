@@ -4,7 +4,6 @@
 <?php $this->stop() ?>
 
 <?php $this->start('contenido') ?>
-<?php //$base_public = "http://".$_SERVER['HTTP_HOST']."/proyectInicio/public/"; ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -25,7 +24,6 @@
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
-
             <div class="info-box-content">
               <span class="info-box-text">Comerciales</span>
               <span class="info-box-number">90<small>%</small></span>
@@ -86,11 +84,13 @@
             <div class="row">
               <div class="col-lg-5 col-md-6 col-sm-12 " style="padding-bottom: 10px;">
                 <div class="btn-group" role="group" aria-label="actions"> 
-                  <button type="button" class="btn btn-primary" id="btnAddClaimer" title="Registrar Reclamo" onclick="clickRedirectReclamo(event)"><i class="fa fa-fw fa-plus" ></i>&nbsp;</button>
+                  <a href="<?php echo site_url("reclamo/recepcion") ?>" class="btn btn-primary" id="btnAddClaimer" title="Registrar Reclamo"><i class="fa fa-fw fa-plus" ></i></a>
 
-                  <button type="button" class="btn btn-default" id="btnDerivation" title="Derivación" onclick="clickRedirectDerivacion(event)" data-reclamo="" style="display:none"><i class="fa fa-fw fa-exchange" ></i>&nbsp;</button>
-                  <button type="button" class="btn btn-default" id="btnPronunciamiento" title="Pronunciamento" onclick="clickRedirectPronunciamiento(event)" data-reclamo="" style="display:none"><i class="fa fa-fw fa-gavel" ></i>&nbsp;</button>
-                  <button type="button" class="btn btn-default" id="btnComunication" title="Comunicación" onclick="clickRedirectComunicacion(event)" data-reclamo="" style="display:none"><i class="fa fa-fw fa-bullhorn"  ></i>&nbsp;</button>
+                  <a href="<?php echo site_url("reclamo/derivacion")."?reclamo=" ?>" class="btn btn-default" id="btnDerivation" title="Derivación" style="display:none; color: #444;"><i class="fa fa-fw fa-exchange" ></i></a>
+
+                  <a href="<?php echo site_url("reclamo/pronunciamiento")."?reclamo=" ?>" class="btn btn-default" id="btnPronunciamiento" title="Pronunciamento" style="display:none; color: #444;"><i class="fa fa-fw fa-gavel" ></i></a>
+
+                  <a href="<?php echo site_url("reclamo/comunicacion")."?reclamo=" ?>" class="btn btn-default" id="btnComunication" title="Comunicación" style="display:none; color: #444;" ><i class="fa fa-fw fa-bullhorn"></i></a>
 
                   <button type="button" class="btn btn-default" id="btnRefresh" title="Actualizar Datos"><i class="fa fa-fw fa-refresh" ></i>&nbsp;</button>
                 </div>
@@ -342,48 +342,5 @@
           },
       });
   });
-
-  ///////////////////////////////////
-  /*** RECEPCION RECLAMO  */
-  function clickRedirectReclamo(event){
-    var target = event.target;
-    if(Boolean(target)){
-      window.location.href = "<?php echo $base_root; ?>"+"reclamo/recepcion";
-    }
-  }
-
-  ///////////////////////////////////
-  /*** DERIVACION  */
-  function clickRedirectDerivacion(event){
-    var target = event.target;
-    if(Boolean(target)){
-      window.location.href = "<?php echo $base_root; ?>"+"reclamo/derivacion?reclamo="+getParamDataReclamo(target);
-    }
-  }
-
-  ///////////////////////////////////
-  /**   PRONUNCIAMIENTO   **/
-  function clickRedirectPronunciamiento(event){
-    var target = event.target;
-    if(Boolean(target)){
-      window.location.href = "<?php echo $base_root; ?>"+"reclamo/pronunciamiento?reclamo="+getParamDataReclamo(target);
-    }
-  }
-
-  ///////////////////////////////////
-  /**   COMUNICACION   **/
-  function clickRedirectComunicacion(event){
-    var target = event.target;
-    if(Boolean(target)){
-      window.location.href = "<?php echo $base_root; ?>"+"reclamo/comunicacion?reclamo="+getParamDataReclamo(target);
-    }
-  }
-
-  function getParamDataReclamo(target){
-    var data = target.getAttribute("data-reclamo");
-    if(!Boolean(data)){
-      data = target.parentElement.getAttribute("data-reclamo");
-    }
-  }
 </script>
 <?php $this->stop() ?>

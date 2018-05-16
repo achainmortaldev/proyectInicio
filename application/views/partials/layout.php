@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php $base_public = "http://".$_SERVER['HTTP_HOST']."/proyectInicio/public/"; ?>
+    <?php $base_public = site_url()."public/"; ?>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>AdminLTE 2 | Dashboard</title>

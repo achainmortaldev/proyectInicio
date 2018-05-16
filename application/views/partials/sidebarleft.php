@@ -1,5 +1,5 @@
-  <?php $base_public = "http://".$_SERVER['HTTP_HOST']."/proyectInicio/public/"; ?>
-  <?php $base_url = "http://".$_SERVER['HTTP_HOST']."/proyectInicio/"; ?>
+  <?php $base_public = site_url()."public/"; ?>
+  <?php $base_url = site_url(); ?>
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
